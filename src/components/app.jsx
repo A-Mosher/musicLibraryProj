@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import NavBar from './NavigationBar/navBar';
+//import NavBar from './NavigationBar/navBar';
 import MusicTable from './MusicTable/musicTable';
-import SearchBar from './SearchBar/searchBar';
+//import SearchBar from './SearchBar/searchBar';
+import axios from 'axios';
 
 
 class App extends Component {
@@ -13,8 +14,9 @@ class App extends Component {
     }
 
     componentDidMount(){
+        getMusicLibrary()
         this.setState({
-
+            musicLibrary: getMusicLibrary()
         })
     }
     
@@ -27,6 +29,14 @@ class App extends Component {
         )
     }
 }
+
+
+async function getMusicLibrary() {
+    const response = await axios.get("http://www.devcodecampmusiclibrary.com/api/music")
+
+    console.log(response);
+}
+
 
 export default App;
 

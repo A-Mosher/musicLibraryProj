@@ -2,7 +2,7 @@ import React from 'react';
 
 function MusicTable(props) {
     return(
-        <h1>Howdy, World!</h1>
+        <h1>howdy, world</h1>
     )
 }
 
