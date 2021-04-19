@@ -8,18 +8,21 @@ import axios from 'axios';
 class App extends Component {
     constructor(props){
         super(props);
-        this.state = {}
+        this.state = {
+            music: []
+        }
        
 
     }
 
     componentDidMount(){
-        getMusicLibrary()
-        this.setState({
-            musicLibrary: getMusicLibrary()
-        })
+        axios.get("http://www.devcodecampmusiclibrary.com/api/music").then(response =>{
+            console.log(response.data);
+            this.setState({music: response.data})
+        }) 
+
     }
-    
+    //send in state music data as a prop into music table
 
 
 
@@ -28,15 +31,8 @@ class App extends Component {
             <MusicTable/>
         )
     }
+
 }
-
-
-async function getMusicLibrary() {
-    const response = await axios.get("http://www.devcodecampmusiclibrary.com/api/music")
-
-    console.log(response);
-}
-
 
 export default App;
 
