@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //import NavBar from './NavigationBar/navBar';
 import MusicTable from './MusicTable/musicTable';
-//import SearchBar from './SearchBar/searchBar';
+import SearchBar from './SearchBar/searchBar';
 import axios from 'axios';
 import SearchBar from './SearchBar/searchBar';
 
@@ -26,7 +26,16 @@ class App extends Component {
     }
 
     onChangeInput = (event) =>{
+        this.setState({searchValue: event.target.value})
         //set state of searchValue see below!
+    }
+
+    filterSongs(){
+        this.state.music.filter(song =>{
+            return(
+                song.title.includes(this.state.searchValue)
+            )
+        })
     }
     //send in state music data as a prop into music table
 

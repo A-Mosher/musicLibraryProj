@@ -1,8 +1,8 @@
 import React from 'react';
 
-function SearchBar(props) {
+function SearchBar(searchBoxChange) {
     return(
-        <input type="text" onChange={function}/>
+        <input type="text" onChange={searchBoxChange}/>
 
         //research on change event
     )
