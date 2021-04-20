@@ -2,7 +2,9 @@ import React from 'react';
 
 function SearchBar(props) {
     return(
-        <h1>Hey there, World!</h1>
+        <input type="text" onChange={function}/>
+
+        //research on change event
     )
 }
 
